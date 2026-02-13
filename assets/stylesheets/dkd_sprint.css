@@ -1,0 +1,92 @@
+/* Top-Menu Badge */
+.dkd-sprint-badge {
+  float: right;
+  margin-left: 8px;
+}
+
+.dkd-sprint-label {
+  color: #fff;
+  font-size: 0.85em;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+/* Sidebar-Block */
+.dkd-sprint-sidebar {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.dkd-sprint-sidebar h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 6px;
+}
+
+.dkd-sprint-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dkd-sprint-sidebar li {
+  padding: 3px 0;
+  font-size: 12px;
+  color: #555;
+}
+
+/* Fortschrittsbalken */
+.dkd-sprint-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dkd-sprint-progress-bar {
+  display: inline-block;
+  width: 120px;
+  height: 12px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.dkd-sprint-progress-fill {
+  display: block;
+  height: 100%;
+  background: #468847;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.dkd-sprint-progress-text {
+  font-size: 11px;
+  color: #888;
+  vertical-align: middle;
+}
+
+/* My-Page Widget */
+.dkd-sprint-widget table.list {
+  width: 100%;
+}
+
+.dkd-sprint-widget table.list thead th {
+  font-size: 14px;
+  padding: 8px;
+}
+
+.dkd-sprint-widget table.list td {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.dkd-sprint-widget table.list td:first-child {
+  font-weight: bold;
+  width: 120px;
+  color: #666;
+}

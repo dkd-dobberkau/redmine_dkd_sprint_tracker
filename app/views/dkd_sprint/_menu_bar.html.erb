@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag 'dkd_sprint', plugin: 'redmine_dkd_sprint_tracker' %>
+
+<% sprint = DkdSprintCalculator.current_sprint %>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var topMenu = document.getElementById('top-menu');
+  if (!topMenu) return;
+
+  var badge = document.createElement('li');
+  badge.className = 'dkd-sprint-badge';
+
+  <% if sprint.non_working_day? %>
+    badge.innerHTML = '<span class="dkd-sprint-label">\u{1F3C3} <%= sprint.label %> \u00B7 \u{1F389} Wochenende</span>';
+  <% else %>
+    badge.innerHTML = '<span class="dkd-sprint-label">\u{1F3C3} <%= sprint.label %> \u00B7 Tag <%= sprint.current_day %>/<%= sprint.total_days %></span>';
+  <% end %>
+
+  var ul = topMenu.querySelector('ul');
+  if (ul) ul.appendChild(badge);
+});
+</script>

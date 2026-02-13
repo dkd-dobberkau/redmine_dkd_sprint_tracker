@@ -1,0 +1,47 @@
+<% sprint = DkdSprintCalculator.current_sprint %>
+<% filled = (sprint.progress * 10).to_i %>
+<% empty_blocks = 10 - filled %>
+<% percent = (sprint.progress * 100).to_i %>
+
+<div class="dkd-sprint-widget">
+  <table class="list">
+    <thead>
+      <tr>
+        <th colspan="2">&#x1F3C3; dkd <%= sprint.label %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Zeitraum</td>
+        <td><%= sprint.start_date.strftime('%d.%m.%Y') %> &ndash; <%= sprint.end_date.strftime('%d.%m.%Y') %></td>
+      </tr>
+      <tr>
+        <td>Sprint-Woche</td>
+        <td><%= sprint.week_in_sprint %> von <%= sprint.total_weeks %></td>
+      </tr>
+      <tr>
+        <td>Sprint-Tag</td>
+        <td>
+          <% if sprint.non_working_day? %>
+            &#x1F389; Wochenende
+          <% else %>
+            <%= sprint.current_day %> von <%= sprint.total_days %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Verbleibend</td>
+        <td><%= sprint.remaining_days %> Arbeitstage</td>
+      </tr>
+      <tr>
+        <td>Fortschritt</td>
+        <td>
+          <span class="dkd-sprint-progress-bar">
+            <span class="dkd-sprint-progress-fill" style="width: <%= percent %>%;"></span>
+          </span>
+          <span class="dkd-sprint-progress-text"><%= percent %>%</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
