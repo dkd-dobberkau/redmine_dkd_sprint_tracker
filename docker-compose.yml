@@ -1,0 +1,37 @@
+services:
+  redmine:
+    image: redmine:5
+    container_name: redmine
+    ports:
+      - "3030:3000"
+    volumes:
+      - redmine-data:/usr/src/redmine/files
+      - .:/usr/src/redmine/plugins/redmine_dkd_sprint_tracker:ro
+    environment:
+      - REDMINE_DB_POSTGRES=db
+      - REDMINE_DB_USERNAME=redmine
+      - REDMINE_DB_PASSWORD=redmine
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    container_name: redmine-db
+    environment:
+      - POSTGRES_USER=redmine
+      - POSTGRES_PASSWORD=redmine
+      - POSTGRES_DB=redmine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "redmine"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  redmine-data:
+  db-data:

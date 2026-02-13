@@ -3,9 +3,6 @@
 <% sprint = DkdSprintCalculator.current_sprint %>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var topMenu = document.getElementById('top-menu');
-  if (!topMenu) return;
-
   var badge = document.createElement('li');
   badge.className = 'dkd-sprint-badge';
 
@@ -15,7 +12,20 @@ document.addEventListener('DOMContentLoaded', function() {
     badge.innerHTML = '<span class="dkd-sprint-label">\u{1F3C3} <%= sprint.label %> \u00B7 Tag <%= sprint.current_day %>/<%= sprint.total_days %></span>';
   <% end %>
 
-  var ul = topMenu.querySelector('ul');
-  if (ul) ul.appendChild(badge);
+  // Versuche top-menu (Standard-Theme) oder account-Info (Bleuclair u.a.)
+  var target = document.getElementById('top-menu');
+  if (target) {
+    var ul = target.querySelector('ul');
+    if (ul) { ul.appendChild(badge); return; }
+  }
+
+  // Fallback: an den Header-Bereich anhaengen
+  var header = document.getElementById('header');
+  if (header) {
+    var container = document.createElement('div');
+    container.className = 'dkd-sprint-header-badge';
+    container.appendChild(badge);
+    header.appendChild(container);
+  }
 });
 </script>

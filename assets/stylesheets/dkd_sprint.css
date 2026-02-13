@@ -2,6 +2,7 @@
 .dkd-sprint-badge {
   float: right;
   margin-left: 8px;
+  list-style: none;
 }
 
 .dkd-sprint-label {
@@ -9,6 +10,20 @@
   font-size: 0.85em;
   opacity: 0.9;
   white-space: nowrap;
+}
+
+/* Header-Badge Fallback (Bleuclair u.a.) */
+.dkd-sprint-header-badge {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  color: #fff;
+  font-size: 0.85em;
+  opacity: 0.9;
+}
+
+.dkd-sprint-header-badge .dkd-sprint-badge {
+  float: none;
 }
 
 /* Sidebar-Block */

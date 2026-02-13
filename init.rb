@@ -6,5 +6,5 @@ Redmine::Plugin.register :redmine_dkd_sprint_tracker do
   author 'dkd Internet Service GmbH'
   description 'Zeigt den aktuellen dkd-Sprint in der Redmine-Oberflaeche an'
   version '1.0.0'
-  url 'https://github.com/dkd-dobberkau/DkdSprintTracker'
+  url 'https://github.com/dkd-dobberkau/redmine_dkd_sprint_tracker'
 end
